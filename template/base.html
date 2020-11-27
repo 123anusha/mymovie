@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap_min.css' %}" type="text/css">
+
+    <title>movies</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    {% block 'container' %}
+
+    {% endblock %}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="{% static 'bootstrap/bootstrap_slim.js' %}"></script>
+    <script src="{% static 'bootstrap/bootstrap_bundle.js' %}"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS-->
+    <script src="{% static 'bootstrap/bootstrap_slim_min.js' %}"></script>
+    <script src="{% static 'bootstrap/bootstrap_popper.js' %}"></script>
+    <script src="{% static 'bootstrap/bootstrap_mmin.js' %}"></script>
+
+  </body>
+</html>
