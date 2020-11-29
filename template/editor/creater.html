@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block 'container' %}
+
+
+<!-- home -->
+<div class="container">
+	<div class="row text-center">
+		<div class="col-12">
+			<h1 class="home__title"><b>ADD new movies</b></h1>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-8 ml-auto mr-auto border border-primary">
+			<form method="post" action="{% url 'ecreater' %}">
+				{% csrf_token %}
+				<div class="form-group">
+					<label class="card__title" for="img">Image</label>
+					<input type="file" id="img" name="image" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="card__title" for="t">Movie Name</label>
+					<input type="text" id="t" name="title" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="card__title" for="d">Director</label>
+					<input type="text" id="d" name="director" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="card__title" for="c">Cast</label>
+					<input type="text" id="c" name="cast" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="card__title" for="m">Movie Type</label>
+					<input type="text" id="m" name="movie_type" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="card__title" for="l">Language</label>
+					<input type="text" id="l" name="language" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="card__title" for="con">Country</label>
+					<input type="text" id="con" name="country" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="card__title" for="res_date" class="col-md-3 control-label">Released Date</label>
+					<div class="col-md-9">
+						<input type="date" class="form-control" id="res_date" value="{{placement.date|date:"Y-m-d" }}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="card__title" for="p">Description</label>
+					<textarea id="p" name="description" class="form-control" rows="7" required></textarea>
+				</div>
+				<button class="header__sign-in" type="submit" >ADD</button>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- end home -->
+{% endblock %}
+
+</body>
+
+</html>

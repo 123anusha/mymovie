@@ -1,32 +1,40 @@
 from django.shortcuts import render, redirect
 from .models import User
 from django.contrib import auth
-
+from django.contrib import messages
 
 # Create your views here.
 def signup(request):
     if request.method == 'POST':
         if request.POST['email'] == request.POST['email']:
-            try:
-                user = User.objects.get(email=request.POST['email'])
-                return render(request,'account/signup.html',{'error':'Email already exist'})
-            except User.DoesNOTExist:
-                User.objects.create_user(email=request.POST['email'],password=request.POST['pass1'],name=request.POST['name'])
+            name = request.POST['name']
+            email = request.POST['email']
+            password = request.POST['password']
+            if User.objects.filter(email=email).exists():
+                messages.error(request, 'Email is already taken!!')
+                return redirect('vsup')
+            else:
+                user = User.objects.create_User(name=name, email=email, password=password)
                 user.save()
-                return redirect('home')
+                messages.success(request, 'You are Registered!')
         else:
-            return render(request,'account/signup.html',{'error':'Password did not match!!'})
+            messages.error(request, 'Password did not match')
+            return redirect('vsup')
     else:
-        return render(request,'account/signup.html')
+        return render(request, 'account/signup.html')
 
 def login(request):
     if request.method == 'POST':
-        user = auth.authenticate(email=request.POST['email'],password=request.POST['pass1'])
+        email = request.POST['email']
+        password = request.POST['password']
+        user = auth.authenticate(email=email, password=password)
         if user is not None:
             auth.login(request, user)
+            messages.success(request, 'You are successfully logged in!!')
             return redirect('home')
         else:
-            return render(request, 'account/login.html', {'error': 'Email or Password is Incorrect!!'})
+            messages.error(request, 'Invalid Email OR Password!!')
+            return redirect('vlog')
     else:
         return render(request, 'account/login.html')
 

@@ -5,10 +5,10 @@ from django.contrib.auth.models import (
 
 # Create your models here.
 class UserManager(BaseUserManager):
-    def create_User(self,name,email,password):
+    def create_user(self, name, email, password):
         if not email:
             raise ValueError('user must have an email address')
-        user = self.model(email=self.model.normalize_email(email),name=name)
+        user = self.model(email=self.model.normalize_email(email), name=name)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -17,9 +17,9 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
     name = models.CharField(max_length=50)
     email = models.EmailField(verbose_name='UserEmail', unique=True)
-    EMAIL_FIELD = ['email']
-    USERNAME_FIELD = ['email']
-    REQUIRED_FIELDS = ['email','name']
+    EMAIL_FIELD = 'email'
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['name']
     active = models.BooleanField(default=True)
     admin = models.BooleanField(default=False)
     objects = UserManager()
@@ -32,3 +32,8 @@ class User(AbstractBaseUser):
     def is_admin(self):
         return self.is_admin
 
+    #def has_perm(self, perm, obj=None):
+        #return True
+
+    #def has_module_perm(self, app_label):
+        #return True

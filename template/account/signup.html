@@ -1,7 +1,6 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,7 +34,6 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="sign__content">
-						<strong>{{ error }}</strong>
 						<!-- registration form -->
 						<form action="{% url 'vsup' %}" class="sign__form">
 							{% csrf_token %}
@@ -66,6 +64,13 @@
 							<span class="sign__text">Already have an account? <a href="{% url 'vlog' %}">Login!</a></span>
 						</form>
 						<!-- registration form -->
+						<div>
+							{% if messages %}
+								{% for message in messages %}
+									<h3>{{message}}</h3>
+								{% endfor %}
+							{% endif %}
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
-{% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+{% load static %}
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -9,13 +9,170 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'bootstrap/bootstrap_min.css' %}" type="text/css">
 
+    <!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CUbuntu:300,400,500,700'" rel="stylesheet">
+
+    <!-- CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/nouislider.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/plyr.css' %}">
+	<link rel="stylesheet" href="{% static 'css/photoswipe.css' %}">
+	<link rel="stylesheet" href="{% static 'css/default-skin.css' %}">
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Dmitry Volkov">
     <title>movies</title>
   </head>
-  <body>
-    <h1>Hello, world!</h1>
-    {% block 'container' %}
+  <body class="body">
 
-    {% endblock %}
+	<!-- header -->
+	<header class="header">
+		<div class="header__wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="header__content">
+							<!-- header logo -->
+							<a href="{% url 'home' %}" class="header__logo">
+								<img src="static/img/logo.jpg" alt="">
+								<h1>MOVIES</h1>
+							</a>
+							<!-- end header logo -->
+
+							<!-- header nav -->
+							<ul class="header__nav">
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuHome" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+								</li>
+								<!-- end dropdown -->
+
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
+
+									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuCatalog">
+										<li><a href="catalog1.html">Catalog Grid</a></li>
+										<li><a href="catalog2.html">Catalog List</a></li>
+										<li><a href="details1.html">Details Movie</a></li>
+										<li><a href="details2.html">Details TV Series</a></li>
+									</ul>
+								</li>
+								<!-- end dropdown -->
+
+								<li class="header__nav-item">
+									<a href="pricing.html" class="header__nav-link">Pricing Plan</a>
+								</li>
+
+								<li class="header__nav-item">
+									<a href="faq.html" class="header__nav-link">Help</a>
+								</li>
+							</ul>
+							<!-- end header nav -->
+							<!-- header auth -->
+							<div class="header__auth">
+								<button class="header__search-btn" type="button">
+									<i class="icon ion-ios-search"></i>
+								</button>
+								<a href="{% url 'vout' %}" class="header__sign-in">
+									<i class="icon ion-ios-log-in"></i>
+									<span>LOGOUT</span>
+								</a>
+							</div>
+							<!-- end header auth -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- header search -->
+		<form action="#" class="header__search">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="header__search-content">
+							<input type="text" placeholder="Search for a movie, TV Series that you are looking for">
+
+							<button type="button">search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- end header search -->
+	</header>
+	<!-- end header -->
+      <section class="home">
+      {% block 'container' %}
+
+      {% endblock %}
+      </section>
+    <!-- footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+
+				<!-- footer list -->
+				<div class="col-6 col-sm-4 col-md-3">
+					<h6 class="footer__title">Resources</h6>
+					<ul class="footer__list">
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Pricing Plan</a></li>
+						<li><a href="#">Help</a></li>
+					</ul>
+				</div>
+				<!-- end footer list -->
+
+				<!-- footer list -->
+				<div class="col-6 col-sm-4 col-md-3">
+					<h6 class="footer__title">Legal</h6>
+					<ul class="footer__list">
+						<li><a href="#">Terms of Use</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Security</a></li>
+					</ul>
+				</div>
+				<!-- end footer list -->
+
+				<!-- footer list -->
+				<div class="col-12 col-sm-4 col-md-3">
+					<h6 class="footer__title">Contact</h6>
+					<ul class="footer__list">
+						<li><a href="tel:+18002345678">4467832 , 9846123894</a></li>
+						<li><a href="#">movies@gog.com</a></li>
+					</ul>
+					<ul class="footer__social">
+						<li class="facebook"><a href="#"><i class="icon ion-logo-facebook"></i></a></li>
+						<li class="instagram"><a href="#"><i class="icon ion-logo-instagram"></i></a></li>
+						<li class="twitter"><a href="#"><i class="icon ion-logo-twitter"></i></a></li>
+						<li class="vk"><a href="#"><i class="icon ion-logo-vk"></i></a></li>
+					</ul>
+				</div>
+				<!-- end footer list -->
+
+				<!-- footer copyright -->
+				<div class="col-12">
+					<div class="footer__copyright">
+						<ul>
+							<li><a href="#">Terms of Use</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- end footer copyright -->
+			</div>
+		</div>
+	</footer>
+	<!-- end footer -->
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -27,6 +184,20 @@
     <script src="{% static 'bootstrap/bootstrap_slim_min.js' %}"></script>
     <script src="{% static 'bootstrap/bootstrap_popper.js' %}"></script>
     <script src="{% static 'bootstrap/bootstrap_mmin.js' %}"></script>
+
+    <!-- JS -->
+	<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/jquery.mousewheel.min.js' %}"></script>
+	<script src="{% static 'js/jquery.mCustomScrollbar.min.js' %}"></script>
+	<script src="{% static 'js/wNumb.js' %}"></script>
+	<script src="{% static 'js/nouislider.min.js' %}"></script>
+	<script src="{% static 'js/plyr.min.js' %}"></script>
+	<script src="{% static 'js/jquery.morelines.min.js' %}"></script>
+	<script src="{% static 'js/photoswipe.min.js' %}"></script>
+	<script src="{% static 'js/photoswipe-ui-default.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
 
   </body>
 </html>
